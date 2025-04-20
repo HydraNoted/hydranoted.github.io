@@ -26,19 +26,80 @@ function getOutput()  {
     } else {
     	command += document.getElementById("zRot").value;
     }
-    command += "f,1f],translation:[0f,0f,0f],scale:[1f,1f,1f]},text:'{\"bold\":false,\"color\":\"white\",\"text\":\"";
+    command += "f,1f],translation:[";
+    if (document.getElementById("xTrans").value == "") {
+    	command += "0";
+    } else {
+    	command += document.getElementById("xTrans").value;
+    }
+    command += "f,";
+    if (document.getElementById("yTrans").value == "") {
+    	command += "0";
+    } else {
+    	command += document.getElementById("yTrans").value;
+    }
+    command += "f,";
+    if (document.getElementById("zTrans").value == "") {
+    	command += "0";
+    } else {
+    	command += document.getElementById("zTrans").value;
+    }
+    command += "f],scale:[";
+    if (document.getElementById("xScale").value == "") {
+    	command += "1";
+    } else {
+    	command += document.getElementById("xScale").value;
+    }
+    command += "f,";
+    if (document.getElementById("yScale").value == "") {
+    	command += "1";
+    } else {
+    	command += document.getElementById("yScale").value;
+    }
+    command += "f,";
+    if (document.getElementById("zScale").value == "") {
+    	command += "1";
+    } else {
+    	command += document.getElementById("zScale").value;
+    }
+    command += "f]},text:'{\"bold\":";
+    if (document.getElementById("bold").checked == true) {
+    	command += "true";
+    } else {
+    	command += "false";
+    }
+    command += ",\"color\":\"";
+    command += document.getElementById("color").value;
+    command += "\",\"text\":\"";
     command += document.getElementById("text").value;
-    command += "\"}'}";
+    command += "\"}',background:0}";
 	return command;
 }
 </script>
 
 <h1>Minecraft Text Display Generator</h1>
 
+<p>Rotation</p>
+<input type="text" id="xRot" placeholder="X">
+<input type="text" id="yRot" placeholder="Y">
+<input type="text" id="zRot" placeholder="Z"><br><br>
+
+<p>Translation</p>
+<input type="text" id="xTrans" placeholder="X">
+<input type="text" id="yTrans" placeholder="Y">
+<input type="text" id="zTrans" placeholder="Z"><br><br>
+
+<p>Scale</p>
+<input type="text" id="xScale" placeholder="X">
+<input type="text" id="yScale" placeholder="Y">
+<input type="text" id="zScale" placeholder="Z"><br><br>
+
+<p>Bold</p><input type="checkbox" id="bold"><br><br>
+
+<p>Color</p>
+<input type="color" id="color" value="#FFFFFF"><br><br>
+
 <input type="text" id="text" placeholder="Text"><br><br>
-<input type="text" id="xRot" placeholder="X Rotation"><br><br>
-<input type="text" id="yRot" placeholder="Y Rotation"><br><br>
-<input type="text" id="zRot" placeholder="Z Rotation"><br><br>
 
 <input type="text" id="output">
 
