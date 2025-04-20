@@ -8,25 +8,19 @@
 <script>
 function getOutput()  {
 	command = "";
-	command += "/summon text_display ~ ~ ~ {transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[";
-    if (document.getElementById("xRot").value == "") {
+	command += "/summon text_display ~ ~ ~ {Rotation:[";
+    if (document.getElementById("hRot").value == "") {
     	command += "0";
     } else {
-    	command += document.getElementById("xRot").value;
+    	command += document.getElementById("hRot").value;
     }
     command += "f,";
-    if (document.getElementById("yRot").value == "") {
+    if (document.getElementById("vRot").value == "") {
     	command += "0";
     } else {
-    	command += document.getElementById("yRot").value;
+    	command += document.getElementById("vRot").value;
     }
-    command += "f,";
-    if (document.getElementById("zRot").value == "") {
-    	command += "0";
-    } else {
-    	command += document.getElementById("zRot").value;
-    }
-    command += "f,1f],translation:[";
+    command += "f],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[";
     if (document.getElementById("xTrans").value == "") {
     	command += "0";
     } else {
@@ -80,9 +74,8 @@ function getOutput()  {
 <h1>Minecraft Text Display Generator</h1>
 
 <p>Rotation</p>
-<input type="text" id="xRot" placeholder="X">
-<input type="text" id="yRot" placeholder="Y">
-<input type="text" id="zRot" placeholder="Z"><br><br>
+<input type="text" id="hRot" placeholder="Horizontal">
+<input type="text" id="vRot" placeholder="Vertical"><br><br>
 
 <p>Translation</p>
 <input type="text" id="xTrans" placeholder="X">
