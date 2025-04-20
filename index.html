@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Minecraft Text Display Generator</title>
+</head>
+<body>
+
+<script>
+function getOutput()  {
+	command = "";
+	command += "/summon text_display ~ ~ ~ {transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1f,1f,1f]},text:'{\"bold\":false,\"color\":\"white\",\"text\":\"";
+    command += document.getElementById("text").value;
+    command += "\"}'}";
+	return command;
+}
+</script>
+
+<h1>Minecraft Text Display Generator</h1>
+
+<input type="text" id="text" placeholder="Enter your text here"><br><br>
+
+<input type="text" id="output">
+
+<button onClick="document.getElementById('output').value = getOutput();">Generate Command</button>
+
+</body>
+</html>
