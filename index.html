@@ -8,7 +8,25 @@
 <script>
 function getOutput()  {
 	command = "";
-	command += "/summon text_display ~ ~ ~ {transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1f,1f,1f]},text:'{\"bold\":false,\"color\":\"white\",\"text\":\"";
+	command += "/summon text_display ~ ~ ~ {transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[";
+    if (document.getElementById("xRot").value == "") {
+    	command += "0";
+    } else {
+    	command += document.getElementById("xRot").value;
+    }
+    command += "f,";
+    if (document.getElementById("yRot").value == "") {
+    	command += "0";
+    } else {
+    	command += document.getElementById("yRot").value;
+    }
+    command += "f,";
+    if (document.getElementById("zRot").value == "") {
+    	command += "0";
+    } else {
+    	command += document.getElementById("zRot").value;
+    }
+    command += "f,1f],translation:[0f,0f,0f],scale:[1f,1f,1f]},text:'{\"bold\":false,\"color\":\"white\",\"text\":\"";
     command += document.getElementById("text").value;
     command += "\"}'}";
 	return command;
@@ -17,7 +35,10 @@ function getOutput()  {
 
 <h1>Minecraft Text Display Generator</h1>
 
-<input type="text" id="text" placeholder="Enter your text here"><br><br>
+<input type="text" id="text" placeholder="Text"><br><br>
+<input type="text" id="xRot" placeholder="X Rotation"><br><br>
+<input type="text" id="yRot" placeholder="Y Rotation"><br><br>
+<input type="text" id="zRot" placeholder="Z Rotation"><br><br>
 
 <input type="text" id="output">
 
